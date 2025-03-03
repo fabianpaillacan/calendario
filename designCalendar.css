@@ -1,63 +1,42 @@
 /* General styles */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-attachment: fixed;
-    background-image: radial-gradient(at 69% 31%, hsla(73, 17%, 47%, 1) 0%, hsla(73, 17%, 47%, 0) 100%), 
-                      radial-gradient(at 88% 84%, hsla(341, 44%, 52%, 1) 0%, hsla(341, 44%, 52%, 0) 100%), 
-                      radial-gradient(at 70% 86%, hsla(326, 32%, 57%, 1) 0%, hsla(326, 32%, 57%, 0) 100%);
+    max-height: 100px;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-attachment: fixed;
+        background-image: radial-gradient(at 69% 31%, hsla(73, 17%, 47%, 1) 0%, hsla(73, 17%, 47%, 0) 100%), 
+                          radial-gradient(at 88% 84%, hsla(341, 44%, 52%, 1) 0%, hsla(341, 44%, 52%, 0) 100%), 
+                          radial-gradient(at 70% 86%, hsla(326, 32%, 57%, 1) 0%, hsla(326, 32%, 57%, 0) 100%);
+    
 }
 
-/* Contenedor principal */
 #contenedorClimaHora {
+    display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10px;
     margin-bottom: 20px;
-}
-
-#relojContainer{
-    width: 200px;
-    margin-bottom: 20px;
-} 
-#climaContainer {
-    width:1px;
-    margin-bottom: 20px;
-}
-
-#calendar {
-    width: 65%;
-    max-width: 1000px;
-    margin: 0 auto;
-    background: #A99BCE;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(135, 130, 130, 0.1);
-}
-
-/* Contenedor de eventos dentro del modal */
-#eventosdelmodal {
-    position: fixed;
-    left: 10px;
-    top: 6%;
-    transform: translateY(-50%);
     width: 100%;
-    max-width: 300px;
-    max-height: 80vh;
-    overflow-y: auto;
-    background-color: #ED9277;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilos del contenedor del clima */
-#climaContainer {
-    position: fixed;
-    width: 200px;
-    top: 220px;
-    right:10px;
+#relojContainer {
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+    background-color:#a516a5;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5em;
+}
+#climaContainer{
+    width: 100%;
+    max-width: 250px;
+    margin: 10px auto;
+    position: relative;
     background-color: #a516a5;
     color: white;
     padding: 20px;
@@ -68,30 +47,35 @@ body {
     font-size: 1.2em;
 }
 
-#fechaClima {
-    font-size: 1.2em;
-    font-weight: bold;
+#calendar {
+   display: block;
+    max-width: 100%;
+    max-height: 100%;
+    background: #A99BCE;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(135, 130, 130, 0.1);
 }
 
-#descripcionClima {
-    font-size: 1.2em;
+#eventosdelmodal {
+    position: relative;
+    width: 90%;
+    max-width: 100%;
+    left: auto;
+    top: auto;
+    margin: 10px auto;
+    background-color: #ED9277;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-#temperatura {
-    font-size: 2em;
-    font-weight: bold;
-}
-
-#clima {
-    font-size: 1.2em;
-}
-
-/* Barra de progreso para el uso de localStorage */
+/* Barra de progreso */
 #storageUsageContainer {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    width: 250px;
+    position: relative;
+    width: 90%;
+    max-width: 300px;
+    margin: 10px auto;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -112,33 +96,14 @@ body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 1em;
 }
-
-/* Estilos del reloj */
-#relojContainer {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background-color: #a516a5;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.5em;
+#eventosYBarra {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
-
-#reloj {
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-#fecha {
-    margin-top: 10px;
-    font-size: 1.2em;
-}
-
-/* Cada evento individual */
 .eventos {
     width: 220px !important;
     background-color: #f8f9fa; /* Color suave */
@@ -149,8 +114,6 @@ body {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-/* Agregar espacio entre eventos */
 .eventos:not(:last-child) {
     margin-bottom: 5px;
 }
@@ -160,8 +123,6 @@ body {
     font-weight: bold;
     color: #333;
 }
-
-/* Estilos del modal */
 .modal {
     display: none;
     position: fixed;
@@ -222,7 +183,6 @@ p {
     font-size: 16px;
 }
 
-/* Estilos de los botones del calendario */
 .fc-button {
     background-color: #c8009c !important; /* Color de fondo */
     border-color: black !important;
@@ -240,4 +200,23 @@ p {
 
 .fc-button-group .fc-button:hover {
     background-color: #F5E6C8 !important;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    #contenedorClimaHora {}
+
+    #calendar {}
+
+    #relojContainer {}
+
+    #climaContainer {}
+
+    .modal-content {}
+
+    .eventos {}
+
+    #storageUsageContainer {}
+
+    .modal {}
 }
