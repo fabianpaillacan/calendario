@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker registrado con éxito:', registration);
+                })
+                .catch(error => {
+                    console.log('Error al registrar el Service Worker:', error);
+                });
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <link rel="stylesheet" href="designCalendar.css">
+    
+</head>
+<body>
+    <div class="fondo-izquierda"></div>
+    <div class="fondo-derecha"></div>
+    <div id="contenedorClimaHora">
+        <div id="relojContainer">
+            <div id="reloj"></div>
+            <div id="fecha"></div>
+        </div>
+        <div id="climaContainer">
+            <div id="clima"></div>
+            <div id="temperatura"></div>
+            <div id="uvIndex"></div> <!-- Elemento para mostrar el índice UV -->
+        </div>
+    </div>
+    <div id="calendar"></div>
+    <div id="eventosdelmodal" class="eventos"><p></p>
+    </div>
+    <!-- Campo de búsqueda -->
+    <input type="text" id="searchInput" placeholder="Buscar eventos...">
+    <!-- Contenedor para los resultados de la búsqueda -->
+    <div id="resultadosBusqueda"></div>
+    <!-- Barra de progreso para el uso de localStorage -->
+    <div id="storageUsageContainer">
+        <div id="storageUsageBar"></div>
+        <span id="storageUsageText"></span>
+    </div>
+    <!-- Modal para agregar eventos -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <h3>Nuevo Evento</h3>
+            <input type="text" id="eventTitle" placeholder="Título del evento">
+            <input type="time" id="eventStartTime" placeholder="Hora de inicio">
+            <input type="time" id="eventEndTime" placeholder="Hora de fin">
+            <select id="eventRepeat">
+                <option value="none">No repetir</option>
+                <option value="daily">Diariamente</option>
+                <option value="weekly">Semanalmente</option>
+                <option value="monthly">Mensualmente</option>
+                <option value="yearly">Anualmente</option>
+            </select>
+            <button id="saveEvent">Guardar</button>
+            <button class="close-btn" onclick="closeModal()">Cancelar</button>
+            <hr>
+            <div class="color-picker"> Escoge el color
+                <input type="color" id="colorInput" value="#f0f0f0">
+                  <div class="color-info">
+                     <p>HEX: <span id="hexValue">#f0f0f0</span></p>
+                     <p>RGB: <span id="rgbValue">rgb(255, 0, 0)</span></p>
+                  </div>
+            </div>
+        </div>
+    </div>
+   
+    <script src="MainCalendar.js"></script>
+</body>
+</html>
