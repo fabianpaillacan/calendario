@@ -1,37 +1,63 @@
-.titulo{
-    background-color: pink;
-    color: white;
-    border-radius: 5px;
-    width: 20%;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
+/* General styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-attachment: fixed;
+    background-image: radial-gradient(at 69% 31%, hsla(73, 17%, 47%, 1) 0%, hsla(73, 17%, 47%, 0) 100%), 
+                      radial-gradient(at 88% 84%, hsla(341, 44%, 52%, 1) 0%, hsla(341, 44%, 52%, 0) 100%), 
+                      radial-gradient(at 70% 86%, hsla(326, 32%, 57%, 1) 0%, hsla(326, 32%, 57%, 0) 100%);
 }
+
+/* Contenedor principal */
+#contenedorClimaHora {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#relojContainer{
+    width: 200px;
+    margin-bottom: 20px;
+} 
+#climaContainer {
+    width:1px;
+    margin-bottom: 20px;
+}
+
+#calendar {
+    width: 65%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #A99BCE;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(135, 130, 130, 0.1);
+}
+
 /* Contenedor de eventos dentro del modal */
 #eventosdelmodal {
     position: fixed;
-    left: 5px; 
-    top: 7%;
+    left: 10px;
+    top: 6%;
     transform: translateY(-50%);
-    width: 270px; 
-    max-height: 80vh; 
-    overflow-y: auto; 
+    width: 100%;
+    max-width: 300px;
+    max-height: 80vh;
+    overflow-y: auto;
     background-color: #ED9277;
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
 }
+
+/* Estilos del contenedor del clima */
 #climaContainer {
     position: fixed;
-    top: 200px;
-    width: 250px;
-    right: 10px;
+    width: 200px;
+    top: 220px;
+    right:10px;
     background-color: #a516a5;
     color: white;
     padding: 20px;
@@ -39,10 +65,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1.5em;
-    width: 100%;
-    max-width: 300px;
-    margin-bottom: 20px;
+    font-size: 1.2em;
 }
 
 #fechaClima {
@@ -59,12 +82,16 @@
     font-weight: bold;
 }
 
+#clima {
+    font-size: 1.2em;
+}
 
+/* Barra de progreso para el uso de localStorage */
 #storageUsageContainer {
     position: fixed;
     bottom: 10px;
     left: 10px;
-    width: 280px;
+    width: 250px;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -85,13 +112,10 @@
     font-family: 'Courier New', Courier, monospace;
     font-size: 1em;
 }
-#clima {
-    font-size: 1.2em;
-}
 
+/* Estilos del reloj */
 #relojContainer {
     position: fixed;
-    width: 250px;
     top: 10px;
     right: 10px;
     background-color: #a516a5;
@@ -102,13 +126,10 @@
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.5em;
-    width: 100%;
-    max-width: 300px;
-    margin-bottom: 20px;
 }
 
 #reloj {
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: bold;
 }
 
@@ -119,6 +140,7 @@
 
 /* Cada evento individual */
 .eventos {
+    width: 220px !important;
     background-color: #f8f9fa; /* Color suave */
     border-left: 7px solid #290ba8; /* Línea de color para destacar */
     border-right: 7px solid #290ba8; 
@@ -139,28 +161,7 @@
     color: #333;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-image: radial-gradient(at 68.94907821791895% 30.806513232793154%, hsla(73.17073170731706, 17.012448132780086%, 47.25490196078431%, 1) 0%, hsla(73.17073170731706, 17.012448132780086%, 47.25490196078431%, 0) 100%), radial-gradient(at 88.01873883003117% 84.0661240710897%, hsla(341.2844036697247, 44.48979591836734%, 51.96078431372548%, 1) 0%, hsla(341.2844036697247, 44.48979591836734%, 51.96078431372548%, 0) 100%), radial-gradient(at 69.69515137587192% 86.30126237524085%, hsla(326.19718309859155, 32.420091324200925%, 57.05882352941176%, 1) 0%, hsla(326.19718309859155, 32.420091324200925%, 57.05882352941176%, 0) 100%);
-    background-attachment: fixed;
-    margin: 0;
-}
-#calendar {
-    max-width: 900px;
-    margin: 50px auto;
-    margin-top: 10px;
-    background: #A99BCE;
-    border-color: #000000;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(135, 130, 130, 0.1);
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-/* 🎨 Estilos del modal */
+/* Estilos del modal */
 .modal {
     display: none;
     position: fixed;
@@ -174,30 +175,13 @@ body {
     align-items: center;
     justify-content: center;
 }
-.colorInput{
-    width: 10%;
-    height: 10%;
-}
-.color-picker {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-.color-info {
-    margin-top: 20px;
-}
-p {
-    margin: 5px 0;
-    font-size: 16px;
-}
 
 .modal-content {
     background: white;
     padding: 20px;
     border-radius: 10px;
-    width: 300px;
+    width: 90%;
+    max-width: 400px;
     text-align: center;
 }
 
@@ -217,70 +201,43 @@ p {
 }
 
 .close-btn {
-    background-color:#f90000 !important ;
+    background-color: #f90000 !important;
 }
+
+/* Estilos del color picker */
+.color-picker {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.color-info {
+    margin-top: 20px;
+}
+
+p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+/* Estilos de los botones del calendario */
 .fc-button {
-    background-color: #c8009c!important; /* Color de fondo */
-    border-color: black!important;
+    background-color: #c8009c !important; /* Color de fondo */
+    border-color: black !important;
     color: rgb(0, 0, 0) !important; /* Color del texto */
     border: none !important;
 }
 
-.fc-button:hover{
+.fc-button:hover {
     background-color: #a60a46;
 }
+
 .fc-prev-button:hover, .fc-next-button:hover, .fc-today-button:hover {
     background-color: #F5E6C8 !important;
 }
+
 .fc-button-group .fc-button:hover {
     background-color: #F5E6C8 !important;
-}
-
-/* General styles */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-/* Responsive styles */
-#contenedorClimaHora {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-}
-
-#relojContainer, #climaContainer {
-    width: 100%;
-    max-width: 300px;
-    margin-bottom: 20px;
-}
-
-#calendar {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-#eventosdelmodal {
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-#eventModal .modal-content {
-    width: 90%;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-    #contenedorClimaHora {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    #relojContainer, #climaContainer {
-        width: auto;
-    }
 }
