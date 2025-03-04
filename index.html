@@ -25,20 +25,84 @@
     
 </head>
 <body>
+    <div class="container">
+        <div class="blue-penguin">
+            <div class="hat"></div>
+            <div class="cane"></div>
+            <div class="blue-belly"></div>
+            <div class="blue-eyes"></div>
+            <div class="blue-mouth"></div>
+            <div class="blue-feet"></div>
+        </div>
+        <div class="pink-penguin">
+            <div class="pink-belly"></div>
+            <div class="pink-eyes"></div>
+            <div class="pink-mouth"></div>
+            <div class="pink-feet"></div>
+            <div class="pink-air-marks"></div>
+        </div>
+        <div class="floor"></div>
+        <div class="text">zzzzz</div>
+    </div>
+    <div id="cornerSvg">
+        <svg viewBox="-85 -40 160 160">
+            <path fill="#567" stroke="#fff"
+                d="m -50 100
+                   l 0 -60
+                   a 30 30 0 1 1 100 0
+                   l 0 50
+                   -15 0
+                   0 -30
+                   -5 0
+                   -0 40
+                   -30 0
+                   -0 -10
+                   -20 0
+                   0 10
+                   z
+                "/>
+            <path fill="#fff" stroke="#fff"
+                d="M 29 100
+                   a 4 2 0 1 0 -9 0
+                   a 4 2 0 1 0 -9 0
+                   a 4 2 0 1 0 -9 0
+                   z
+                   M -21 100
+                   a 4 2 0 1 0 -9 0
+                   a 4 2 0 1 0 -9 0
+                   a 4 2 0 1 0 -9 0
+                "/>
+            <path fill="#567" stroke="#fff"
+                d="M -6 47
+                   a 35 35 0 1 1 5 -40
+                "/>
+            <circle r="5" cx=18 cy=27></circle>
+            <circle r="2" cx=16 cy=26 fill="white"></circle>
+        </svg>
+    </div>
+    <div id="marco">
+        <div id="cielo"></div>
+              <div id="luna"></div>
+              <div id="gato"></div>
+              <div id="muro"></div>
+              <div id="edificios"></div>
+      </div>
     <div id="contenedorClimaHora">
         <div id="relojContainer">
-            <div id="reloj"></div>
             <div id="fecha"></div>
+            <div id="reloj"></div>
+            
         </div>
         <div id="climaContainer">
             <div id="clima"></div>
             <div id="temperatura"></div>
             <div id="uvIndex"></div> <!-- Elemento para mostrar el índice UV -->
         </div>
+
     </div>
     <div id="calendar"></div>
     <div id="eventosYBarra">
-        <div id="eventosdelmodal" class="eventos"><p></p></div>
+        <div id="eventosdelmodal" class="eventos" placeholder="Aqui iran los eventos guardados"><p></p></div>
         <div id="storageUsageContainer">
             <div id="storageUsageBar"></div>
             <span id="storageUsageText"></span>
@@ -58,6 +122,7 @@
                 <option value="monthly">Mensualmente</option>
                 <option value="yearly">Anualmente</option>
             </select>
+        
             <button id="saveEvent">Guardar</button>
             <button class="close-btn" onclick="closeModal()">Cancelar</button>
             <hr>

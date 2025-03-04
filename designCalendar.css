@@ -1,16 +1,17 @@
 /* General styles */
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 body {
     max-height: 100px;
         margin: 0;
         font-family: Arial, sans-serif;
         text-align: center;
         background-attachment: fixed;
-        background-image: radial-gradient(at 69% 31%, hsla(73, 17%, 47%, 1) 0%, hsla(73, 17%, 47%, 0) 100%), 
+       /* background-image: radial-gradient(at 69% 31%, hsla(73, 17%, 47%, 1) 0%, hsla(73, 17%, 47%, 0) 100%), 
                           radial-gradient(at 88% 84%, hsla(341, 44%, 52%, 1) 0%, hsla(341, 44%, 52%, 0) 100%), 
-                          radial-gradient(at 70% 86%, hsla(326, 32%, 57%, 1) 0%, hsla(326, 32%, 57%, 0) 100%);
+                          radial-gradient(at 70% 86%, hsla(326, 32%, 57%, 1) 0%, hsla(326, 32%, 57%, 0) 100%);*/
+        background-color: rgb(115, 134, 150);
     
 }
-
 #contenedorClimaHora {
     display: flex;
     flex-direction: column;
@@ -20,35 +21,39 @@ body {
     width: 100%;
 }
 
-#relojContainer {
+#relojContainer, #climaContainer {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
     width: 100%;
-    margin-bottom: 20px;
-    position: relative;
-    background-color:#a516a5;
+    max-width: 400px;
+    background: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 20px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.5em;
 }
-#climaContainer{
-    width: 100%;
-    max-width: 250px;
-    margin: 10px auto;
-    position: relative;
-    background-color: #a516a5;
-    color: white;
+
+#fecha {
+    font-size: 2em;
+    padding: 10px;
+    border-radius: 25px 25px 0 0;
+}
+
+#reloj {
+    font-size: 4.5em;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.2em;
+    border-radius: 0 0 25px 25px;
+}
+
+#climaContainer {
+    font-size: 1.5em;
 }
 
 #calendar {
-   display: block;
+    font-size: medium;
+    display: block;
     max-width: 100%;
     max-height: 100%;
     background: #A99BCE;
@@ -58,16 +63,164 @@ body {
 }
 
 #eventosdelmodal {
-    position: relative;
-    width: 90%;
-    max-width: 100%;
+    /*position: relative;
+    width: 400px;
     left: auto;
     top: auto;
     margin: 10px auto;
-    background-color: #ED9277;
+    background-color: #80a87a;
     border-radius: 10px;
     padding: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);*/
+    font-family: 'Courier New', Courier, monospace;
+    border: 2px solid #322837;
+	padding: 2rem 4rem;
+	border-radius: 1.5rem;
+	font-size: 1rem;
+	font-weight: 500;
+	color: #a18bac;
+    width: 400px;
+    left: auto;
+    top: auto;
+    margin: 10px auto;
+	background: rgba(0, 0, 0, 0.7);
+}
+#cornerSvg {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 200px;  /* Ajusta el tamaño del SVG */
+    height: auto;
+}
+#marco{
+    width: 1325px;
+    height: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 16px;
+    margin-top: 2em;
+    }
+
+#cielo{
+    border-radius: 16px;
+    width: 1325px;
+    height: 500px;
+    background: linear-gradient(to bottom,  #0B4C5F 0%,#04B4AE 52%,#0c0207 100%); 
+    position: absolute;
+    z-index: -30;
+    top: 0;
+    margin-top: 2em;
+    }
+
+#edificios{
+    background: url('https://res.cloudinary.com/pastelitos/image/upload/v1610526533/eva/edificiosOne_fsg7nx.svg');
+    height: 500px; 
+    width: 1325px;
+    z-index: -10;
+    top: 6.5em;
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    -webkit-animation: animar_edificios 120s linear infinite;
+    -ms-animation: animar_edificios 120s linear infinite;
+    -moz-animation: animar_edificios 120s linear infinite;
+    position: absolute;
+    }
+
+/* Animacion edificios */
+
+   @keyframes  animar_edificios {
+        from { background-position: 0 0; }
+        to { background-position: 100% 0; }
+    }
+    @-webkit-keyframes  animar_edificios {
+        from { background-position: 0 0; }
+        to { background-position: 100% 0; }
+    }
+    @-ms-keyframes  animar_edificios {
+        from { background-position: 0 0; }
+        to { background-position: 100% 0; }
+    }
+    @-moz-keyframes  animar_edificios {
+        from { background-position: 0 0; }
+        to { background-position: 100% 0; }
+    }
+   
+#luna {
+    width: 6em;
+    height: 6em;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -moz-box-shadow: 30px 10px 0 #F7F8E0;
+    -webkit-box-shadow: 30px 10px 0 #F7F8E0;
+    box-shadow: 30px 10px 0 #F7F8E0;
+    margin-top: 1em;
+    margin-left: 50%;
+    position: absolute;
+    z-index: -19;
+    }
+
+#muro{
+    height: 23em;
+    width: 100%;
+    background: -moz-linear-gradient(top,  #416663 0%, #0c0207 19%); 
+    background: -webkit-linear-gradient(top,  #416663 0%,#0c0207 19%); 
+    background: linear-gradient(to bottom,  #416663 0%,#0c0207 19%); 
+    bottom:0px; 
+    }
+
+#gato{
+    background: url('https://res.cloudinary.com/pastelitos/image/upload/v1610526571/eva/gatito_pushui.svg');
+    height: 297px; 
+    width: 507.5px;
+    margin-top: 2em;
+    margin-left: 2em;
+    z-index: 10;
+    -webkit-animation: sprite-animation 1.2s steps(16,end) infinite;
+    -moz-animation: sprite-animation 1.2s steps(16,end) infinite; 
+    -ms-animation: sprite-animation 1.2s steps(16,end) infinite; 
+    animation: sprite-animation 1.2s steps(16,end) infinite;
+    }
+
+@-webkit-keyframes sprite-animation { 
+        from { background-position: 0 0; }
+        to { background-position: -8120px 0; } 
+    }
+
+@-ms-keyframes sprite-animation { 
+        from { background-position: 0 0; }
+        to { background-position: -8120px 0; }
+    }
+
+@-moz-keyframes sprite-animation { 
+        from { background-position: 0 0; }
+        to { background-position: -8120px 0; }
+    }
+
+@keyframes sprite-animation { 
+        from { background-position: 0 0; }
+        to { background-position: -8120px 0; }
+    }
+#cornerSvg svg {
+    width: 100%;
+    height: auto;
+}
+.eventos {
+    height: 400px;
+    background-color: #f8f9fa;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.eventos:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+/* Mejorar texto dentro de los eventos */
+.eventos span {
+    font-weight: bold;
+    color: #333;
 }
 
 /* Barra de progreso */
@@ -104,25 +257,7 @@ body {
     max-width: 1000px;
     margin: 0 auto;
 }
-.eventos {
-    width: 220px !important;
-    background-color: #f8f9fa; /* Color suave */
-    border-left: 7px solid #290ba8; /* Línea de color para destacar */
-    border-right: 7px solid #290ba8; 
-    padding: 8px;
-    font-size: 14px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.eventos:not(:last-child) {
-    margin-bottom: 5px;
-}
 
-/* Mejorar texto dentro de los eventos */
-.eventos span {
-    font-weight: bold;
-    color: #333;
-}
 .modal {
     display: none;
     position: fixed;
@@ -138,12 +273,18 @@ body {
 }
 
 .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
     width: 90%;
     max-width: 400px;
     text-align: center;
+	font-family: "Poppins", serif;
+	text-transform: uppercase;
+    border: 2px solid #9f01fc;
+	padding: 2rem 4rem;
+	border-radius: 1.5rem;
+	font-size: 1rem;
+	font-weight: 500;
+	color: #9f01fc;
+	background: linear-gradient(135deg, #f6f8fd 0%, #f1f4f9 100%);
 }
 
 .modal-content input, .modal-content button {
@@ -160,6 +301,39 @@ body {
     color: white;
     cursor: pointer;
 }
+#eventRepeat {
+    width: 90%;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #000000;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 400;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+}
+
+#eventRepeat:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#eventRepeat option {
+    background: #fff;
+    padding: 10px;
+    font-size: 13px;
+    color: #333;
+}
+
+#eventRepeat option:hover {
+    background: #f2f2f2;
+}
+
 
 .close-btn {
     background-color: #f90000 !important;
@@ -168,6 +342,8 @@ body {
 /* Estilos del color picker */
 .color-picker {
     background-color: #f0f0f0;
+    color:black;
+    border-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -184,22 +360,326 @@ p {
 }
 
 .fc-button {
-    background-color: #c8009c !important; /* Color de fondo */
+   /* size: 8em;
+    background-color: #c8009c !important; 
     border-color: black !important;
-    color: rgb(0, 0, 0) !important; /* Color del texto */
-    border: none !important;
+    color: rgb(0, 0, 0) !important; 
+    border: none !important;*/
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    background: rgb(50, 33, 31);
+   /*background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);*/
 }
 
 .fc-button:hover {
-    background-color: #a60a46;
+    /*background-color: #a60a46;*/
+    color: #f0094a;
+    background: transparent;
+     box-shadow:none;
 }
 
 .fc-prev-button:hover, .fc-next-button:hover, .fc-today-button:hover {
-    background-color: #F5E6C8 !important;
+    /*background-color: #F5E6C8 !important;*/
+    color: #f0094a;
+    background: transparent;
+     box-shadow:none;
 }
 
 .fc-button-group .fc-button:hover {
-    background-color: #F5E6C8 !important;
+   /* background-color: #F5E6C8 !important;*/
+   color: #f0094a;
+   background: transparent;
+    box-shadow:none;
+}
+@import url('https://fonts.googleapis.com/css?family=Dawning+of+a+New+Day');
+
+.container {
+  position: relative;
+  margin-top: 20px;
+  margin-left: 20px; 
+  width: 200px;
+}
+
+.blue-penguin, .pink-penguin {
+  position: absolute;
+  border-radius: 50% 50% 30% 30%;
+}
+
+.blue-penguin {
+  background: #6EA8FF;
+  width: 100px;
+  height: 100px;
+}
+
+.pink-penguin {
+  background: #4b494a;
+  width: 95px;
+  height: 90px;
+  left: 110px;
+  top: 10px;
+}
+
+.blue-penguin:before, .pink-penguin:before {
+  content: "";
+  display: block;
+  background: #fff;
+  border-radius: 50% 50% 20% 45%;
+  position: relative;
+  top: 15px;
+  left: 15px;
+}
+
+.blue-penguin:after, .pink-penguin:after {
+  content: "";
+  display: block;
+  background: #fff;
+  border-radius: 50% 50% 45% 20%;
+  position: absolute;
+  left: 52px; 
+}
+
+.blue-penguin:before, .blue-penguin:after {
+  width: 34px;
+  height: 45px;
+  bottom: 40px;
+}
+
+.pink-penguin:before, .pink-penguin:after {
+  width: 30px;
+  height: 50px;
+  bottom: 25px;
+}
+
+.hat {
+  background: #36363A;
+  width: 30px;
+  height: 30px;
+  border-radius: 80% 80% 50% 50%;
+  transform: rotate(-30deg);
+  position: absolute;
+  top: -20px;
+  z-index: 1;
+}
+
+.hat:before {
+  content: "";
+  display: block;
+  background: #29292C;
+  width:50px;
+  height: 10px;
+  border-radius: 80% 80% 50% 50%;
+  position: relative;
+  top: 24px;
+  right: 10px;
+}
+
+.cane {
+  background: #000;
+  width: 5px;
+  height: 40px;
+  position: absolute;
+  top: 60px;
+}
+
+.cane:before {
+  content: "";
+  display: block;
+  background: #8F909B;
+  width: 5px;
+  height: 5px;
+  position: relative;
+  top: 35px;
+}
+
+.cane:after {
+  content: "";
+  display: block;
+  background: #8F909B;
+  width: 12px;
+  height: 5px;
+  position: relative;
+  bottom: 5px;
+}
+
+.blue-belly, .pink-belly {
+  background: #fff;
+  border-radius: 100% 100% 60% 60%;
+  position: relative;
+}
+
+.blue-belly {
+  width: 75px;
+  height: 52px;
+  left: 13px;
+  bottom: 2px;
+}
+
+.pink-belly {
+  width: 74px;
+  height: 44px;
+  left: 12px;
+  bottom: 10px;
+}
+
+.blue-mouth, .pink-mouth {
+  position: absolute;
+  width: 15px;
+  height: 8px;
+  background: #FF9178;
+  border-radius: 40%;
+  /*border: solid 8px #000;
+  border-color: #FF9178 transparent transparent transparent;
+  border-radius: 50%/100px 100px 0 0; */
+  z-index: 1;
+}
+
+.blue-mouth {
+  bottom: 51px;
+  left: 43px;
+}
+
+.pink-mouth {
+  bottom: 44px;
+  left: 41px;
+}
+
+.blue-eyes, .pink-eyes {
+  background: #000;
+  width: 8px;
+  height: 8px;
+  border-radius: 50% 50% 100% 100%;
+  position: absolute; 
+}
+
+.blue-eyes {
+  bottom: 60px; 
+  left: 32px;
+}
+
+.pink-eyes {
+  bottom: 50px;
+  left: 28px;
+}
+
+.blue-eyes:before, .pink-eyes:before {
+  content: "";
+  display: block;
+  background: #000;
+  width: 8px;
+  height: 8px;
+  border-radius: 50% 50% 100% 100%;
+  position: relative;
+  left: 32px;
+  z-index: 1;
+}
+
+.pink-eyes, .pink-eyes:before {
+  border-radius: 100% 100% 50% 50%;
+}
+
+.blue-feet, .pink-feet {
+  background: #FD7E50;
+  border-radius: 40%;
+  position: absolute;
+}
+
+.blue-feet {
+  top: 92px;
+  left: 20px;
+}
+
+.pink-feet {
+  top: 82px;
+  left: 20px;
+}
+
+.blue-feet:before, .pink-feet:before {
+  content: "";
+  display: block;
+  background: #FD7E50;
+  border-radius: 40%;
+  position: relative;
+  left: 40px;
+}
+
+.blue-feet, .blue-feet:before {
+  width: 20px;
+  height: 10px;
+}
+
+.pink-feet, .pink-feet:before {
+  width: 16px;
+  height: 10px;
+}
+
+.pink-air-marks, .pink-air-marks:before {
+  position: absolute;
+  background: #000;
+  width: 3px;
+  height: 10px;
+  bottom: 80px;
+  left: 90px;
+  transform: rotate(30deg);
+  /*animation: shocked 1s linear 1s infinite;*/
+}
+
+.pink-air-marks:before {
+  content: "";
+  display: block;
+  top: 4px;
+  left: 10px;
+  transform: rotate(50deg);
+}
+
+.floor {
+  background: #B1E7BD;
+  width: 225px;
+  height: 15px;
+  border-radius: 40%;
+  position: absolute;
+  top: 92px;
+  left: -15px;
+  z-index: -1;
+}
+
+.floor:before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 10px;
+  background: #95CFA0;
+  position: relative;
+  left: 110px;
+  bottom: 3px;
+}
+
+.floor:after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  background: #95CFA0;
+  position: relative;
+  left: 115px;
+  bottom: 8px;
+}
+
+.text {
+  position: absolute;
+  left: 25px;
+  top: 120px;
+  color: #464647;
+  text-decoration: none;
+  text-align: center;
+  font: bold 1.5em 'Dawning of a New Day', cursive;
+}
+
+@keyframes shocked {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 /* Responsive styles */
