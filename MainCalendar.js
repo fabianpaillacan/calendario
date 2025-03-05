@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const usedStorage = calcularTamañoLocalStorage();
         const usagePercentage = (usedStorage / maxStorage) * 100;
 
-        const storageUsageBar = document.getElementById('storageUsageBar');
+        const storageUsageBar =document.getElementById('storageUsageBar');
         const storageUsageText = document.getElementById('storageUsageText');
 
         storageUsageBar.style.width = `${usagePercentage}%`;

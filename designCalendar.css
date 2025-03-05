@@ -354,18 +354,12 @@ p {
 }
 
 .fc-button {
-   /* size: 8em;
-    background-color: #c8009c !important; 
-    border-color: black !important;
-    color: rgb(0, 0, 0) !important; 
-    border: none !important;*/
     width: 130px;
     height: 40px;
     line-height: 42px;
     padding: 0;
     border: none;
     background: rgb(50, 33, 31);
-   /*background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);*/
 }
 
 .fc-button:hover {
@@ -665,7 +659,7 @@ p {
   position: absolute;
   left: 25px;
   top: 120px;
-  color: #464647;
+  color: #fefeff;
   text-decoration: none;
   text-align: center;
   font: bold 1.5em 'Dawning of a New Day', cursive;
