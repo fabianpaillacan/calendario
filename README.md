@@ -1,0 +1,1 @@
+Calendario en el cual se pueden guardar eventos, editarlos y borrarlos. Funciona utilzando un LocalStorage. Se utilizo FullCalendar para realizar este programa. Este programa no es responsive y no utiliza un sistema de notificaciones para eventos proximos. 
